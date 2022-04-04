@@ -3,6 +3,7 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
 import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
+import IconButton from "@mui/material/IconButton";
 import Percentage from "../Percentage";
 import Amount from "../Amount";
 
@@ -37,13 +38,16 @@ const CoinRow = (props) => {
         <Amount value={props.coin.volumeUsd24Hr} />
       </Grid>
       <Grid item xs={1} className={"coin-details"}>
-        <StarRateIcon
-          sx={{ color: props.coin.isFav ? "var(--selected-star)" : "black" }}
+        <IconButton
           onClick={(e) => {
             e.stopPropagation();
             props.handleFavIconClick(props.coin);
           }}
-        />
+        >
+          <StarRateIcon
+            sx={{ color: props.coin.isFav ? "var(--selected-star)" : "black" }}
+          />
+        </IconButton>
       </Grid>
     </Grid>
   );

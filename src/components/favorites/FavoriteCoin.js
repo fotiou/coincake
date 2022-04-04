@@ -4,6 +4,7 @@ import ClearIcon from "@mui/icons-material/Clear";
 import Grid from "@mui/material/Grid";
 import { useDispatch } from "react-redux";
 import axios from "axios";
+import IconButton from "@mui/material/IconButton";
 import { setByApi, addItem, deleteItemById } from "../../favsSlice";
 import Amount from "../Amount";
 import Percentage from "../Percentage";
@@ -32,7 +33,7 @@ const FavoriteCoin = (props) => {
 		}
 	};
 	const deleteIdFromFavs = async (id) => {
-		setOpen(false)
+		setOpen(false);
 		try {
 			const responseCreate = await axios.delete(`favs/${id}`);
 			dispatch(deleteItemById(id));
@@ -69,10 +70,9 @@ const FavoriteCoin = (props) => {
 					<Percentage value={props.coin.changePercent24Hr} />
 				</Grid>
 				<Grid item xs={2} className={"favorites-coin-details"}>
-					<ClearIcon
-						sx={{ color: "var(--down-color)" }}
-						onClick={() => setOpen(true)}
-					/>
+					<IconButton onClick={() => setOpen(true)}>
+						<ClearIcon sx={{ color: "var(--down-color)" }} />
+					</IconButton>
 				</Grid>
 			</Grid>
 			<Dialog
@@ -92,7 +92,10 @@ const FavoriteCoin = (props) => {
 				</DialogContent>
 				<DialogActions>
 					<Button onClick={handleClose}>No</Button>
-					<Button onClick={() =>handleFavIconClick(props.coin)} autoFocus>
+					<Button
+						onClick={() => handleFavIconClick(props.coin)}
+						autoFocus
+					>
 						Yes
 					</Button>
 				</DialogActions>

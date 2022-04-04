@@ -12,9 +12,7 @@ import Typography from "@mui/material/Typography";
 const FavoriteCoins = (props) => {
   const coins = useSelector((state) => state.coins.value);
   const favs = useSelector((state) => state.favs.value);
-  const [page, setPage] = React.useState(1);
 
-  const pageSize = 3;
   const coinsWithFav = coins.map((coin) => ({
     ...coin,
     isFav: favs.map((fav) => fav.id).includes(coin.id),
@@ -33,13 +31,16 @@ const FavoriteCoins = (props) => {
   const handlePageChange = (event, value) => {
     setPage(value);
   };
-  const myFavoriteCoins = coinsWithFav.filter((a) => a.isFav);
 
+  const [page, setPage] = React.useState(1);
+  const pageSize = 3;
+  const myFavoriteCoins = coinsWithFav.filter((a) => a.isFav);
   const pages = Math.ceil(myFavoriteCoins.length / pageSize);
   const pagedCoins = myFavoriteCoins.slice(
     page * pageSize - pageSize,
     pageSize * page
   );
+
   return (
     <Box className={"favorites"}>
       <Box>
@@ -50,11 +51,16 @@ const FavoriteCoins = (props) => {
           Click the <StarRateIcon sx={{ fontSize: "small" }} /> icon to add a
           coin
         </p>
-        <p>to your favotites list.</p>
+        <p>to your favorites list.</p>
       </Box>
       <Box sx={{ margin: "20px 0" }}>
-        {myFavoriteCoins.length === 0 && <p>No items found.</p>}
         <Divider />
+        {myFavoriteCoins.length === 0 && (
+          <Box sx={{ margin: "20px 0" }}>
+            {" "}
+            <p>No items found.</p>
+          </Box>
+        )}
         {pagedCoins.map((coin, id) => (
           <Box>
             <FavoriteCoin coin={coin} />

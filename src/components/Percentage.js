@@ -6,9 +6,12 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 const Percentage = (props) => {
 	const color = props.value >= 0 ? "var(--up-color)" : "var(--down-color)";
 	return (
-		<Box style={{ color: color }} className={"display-flex"}>
-			{props.value >= 0 ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
+		<Box
+			style={{ color: color, flexDirection: "row-reverse" }}
+			className={"display-flex"}
+		>
 			{Math.round(props.value * 100) / 100}%
+			{props.value >= 0 ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
 		</Box>
 	);
 };
