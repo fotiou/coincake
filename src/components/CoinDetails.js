@@ -20,19 +20,6 @@ const CoinDetails = (props) => {
 	const coinWithoutFav = coins.find((item) => item.id == selectedId);
 	const favs = useSelector((state) => state.favs.value);
 
-	if (coins.length == 0) {
-		return <></>;
-	}
-
-	const coin = {
-		...coinWithoutFav,
-		isFav: favs.map((fav) => fav.id).includes(coinWithoutFav.id),
-	};
-
-	const prevCoin = coins[coins.indexOf(coinWithoutFav) - 1];
-	const nextCoin = coins[coins.indexOf(coinWithoutFav) + 1];
-	const iconUrl = `./images/crypto/icons/${coin.id}.png`;
-
 	const updateSelectedCoin = (id) => {
 		setSearchParams({
 			sorting: searchParams.get("sorting"),
@@ -67,9 +54,24 @@ const CoinDetails = (props) => {
 		}
 		getFavs();
 	};
+
 	const handleFavIconClick = (coin) => {
 		coin.isFav ? deleteIdFromFavs(coin.id) : addIdToFavs(coin.id);
 	};
+
+	if (coins.length == 0) {
+		return <></>;
+	}
+
+	const coin = {
+		...coinWithoutFav,
+		isFav: favs.map((fav) => fav.id).includes(coinWithoutFav.id),
+	};
+
+	const prevCoin = coins[coins.indexOf(coinWithoutFav) - 1];
+	const nextCoin = coins[coins.indexOf(coinWithoutFav) + 1];
+	const iconUrl = `./images/crypto/icons/${coin.id}.png`;
+
 	return (
 		<Box className={"selected-coin"}>
 			<Box className={"display-flex header"}>
