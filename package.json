@@ -1,8 +1,7 @@
 {
-  "name": "thera-coding-session",
+  "name": "coding-session",
   "version": "1.0.0",
   "description": "Coincake Assessment",
-  "homepage": "https://fotiou.github.io/coincake",
   "private": true,
   "dependencies": {
     "@emotion/react": "latest",
