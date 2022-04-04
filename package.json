@@ -1,8 +1,8 @@
 {
   "name": "thera-coding-session",
   "version": "1.0.0",
-  "description": "TheraPanacea test starter",
-  "homepage": "https://fotiou.github.io",
+  "description": "Coincake Assessment",
+  "homepage": "https://fotiou.github.io/coincake",
   "private": true,
   "dependencies": {
     "@emotion/react": "latest",
