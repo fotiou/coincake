@@ -1,0 +1,120 @@
+body {
+  --up-color: #16c784;
+  --down-color: #ea3943;
+  --color-grey: rgb(88, 102, 126);
+  --dark-grey: #e6e6e6;
+  --selected-star: #ffd700;
+  --orange-color: #ff7600;
+}
+.coin-details {
+  padding: 10px 20px;
+}
+.coin-row {
+  background-color: whitesmoke;
+  padding: 10px 20px;
+  margin: 10px 0;
+  align-items: center;
+  cursor: pointer;
+  border: 1px transparent solid;
+}
+.coins-table-header {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px 0 20px;
+  align-items: center;
+}
+.coin-row:hover, .coin-row.selected{
+  border: 1px black solid;
+}
+.display-flex {
+  display: flex;
+}
+.aggregator {
+  background-color: #ffffff;
+  box-shadow: rgb(88 102 126 / 8%) 0px 4px 24px,
+    rgb(88 102 126 / 12%) 0px 1px 2px;
+  border-radius: 8px;
+  padding: 20px 15px;
+  margin-bottom: 10px;
+}
+.aggregator .index,
+.aggregator .coin-symbol {
+  color: var(--color-grey);
+  font-size: 12px;
+}
+.aggregator .coin-icon {
+  width: 14px;
+  height: 14px;
+  margin: 0 0 0 10px;
+  border-radius: 12px;
+}
+.aggregator .coin-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+.aggregator .percentage {
+  font-size: 14px;
+}
+.align-items-center {
+  align-items: center;
+}
+.aggregator .left {
+  flex: 3;
+  line-height: 30px;
+}
+.aggregator .right {
+  flex: 1;
+  line-height: 30px;
+}
+.aggregator h4 {
+  margin: 0 0 10px 0;
+}
+.favorites {
+  background-color: var(--dark-grey);
+  padding: 20px;
+  position: relative;
+}
+.favorites h6 {
+  font-size: 17px;
+}
+.favorites p {
+  font-size: 14px;
+  margin: 0;
+  color: var(--color-grey);
+}
+.favorite-coin-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 12px;
+}
+.favorite-coin-details {
+  padding: 5px 5px;
+}
+.favorites-coin-row {
+  padding: 8px 0;
+  margin: 0;
+  align-items: center;
+}
+.favorites,
+.selected-coin {
+/*  position: absolute;
+  width: 33%;
+  right: 0;*/
+  min-height: calc(50vh - 32px);
+}
+/*.favorites {
+  top: 32px;
+}
+.selected-coin {
+  top: calc(50vh - 32px);
+}*/
+.favorites-pagination {
+  position: absolute;
+  bottom: 10px;
+}
+.selected-coin {
+  background-color: whitesmoke;
+  padding: 20px;
+  margin: 0;
+  align-items: center;
+}
