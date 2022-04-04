@@ -8,11 +8,8 @@ import theme from "./theme";
 import App from "./App";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 
-// Start the mocking conditionally.
-if (process.env.NODE_ENV === "development") {
-  const { worker } = require("./mocks/browser");
-  worker.start();
-}
+const { worker } = require("./mocks/browser");
+worker.start();
 
 ReactDOM.render(
   <React.StrictMode>
